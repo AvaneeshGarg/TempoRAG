@@ -1,0 +1,50 @@
+# Git
+.git
+.gitignore
+
+# Python virtual env (NEVER copy this in)
+.venv
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+
+# Frontend (not needed for backend image)
+clinical-rag-assistant/node_modules
+clinical-rag-assistant/dist
+clinical-rag-assistant/.env.local
+clinical-rag-assistant.zip
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints
+
+# Test / debug scripts
+test_*.py
+check_import*.py
+inspect_weights.py
+*_debug.log
+*.log
+server_*.log
+backend_error*.txt
+debug_log.txt
+wrapper_source.txt
+
+# Irrelevant top-level files
+HF_Prediction.ipynb
+Prediction/
+temporal-rag/
+docs/
+TempoRAG_Research_Methodology_Diagram
+TempoRAG_Research_Methodology_Diagram.svg
+logo.png
+artifacts/
+pyproject.toml
+main.py
+README.md
+
+# Env files (secrets go in Railway/Render dashboard)
+.env
+.env.*
