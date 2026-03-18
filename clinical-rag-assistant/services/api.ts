@@ -1,7 +1,7 @@
 import { HealthStatus, QueryResponse, DecayMethod, PredictionResponse, PredictRequest, SearchResponse } from '../types';
 
 // Reads from Vite env (VITE_BACKEND_URL). Falls back to '' (which uses Vite proxy in dev).
-const BASE_URL = (import.meta.env.VITE_BACKEND_URL as string) || '';
+const BASE_URL = ((import.meta.env.VITE_BACKEND_URL as string) || '').replace(/\/+$/, '');
 
 const apiFetch = (path: string, init?: RequestInit) =>
   fetch(`${BASE_URL}${path}`, { credentials: 'include', ...init });

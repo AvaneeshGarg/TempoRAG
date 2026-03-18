@@ -33,7 +33,7 @@ export const useAuth = () => {
 
 // ── Config ──────────────────────────────────────────────────────────────────
 // In dev: proxied via Vite proxy (/auth → localhost:8001). In prod: direct to Render URL.
-export const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string) || '';
+export const BACKEND_URL = ((import.meta.env.VITE_BACKEND_URL as string) || '').replace(/\/+$/, '');
 
 const GUEST_KEY = 'crag_is_guest';
 const MAX_GUEST_SEARCHES = 3;
