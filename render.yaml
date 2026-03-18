@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: clinical-rag-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      # ── OAuth Credentials (fill these in Render Dashboard) ──
+      - key: GOOGLE_CLIENT_ID
+        sync: false          # means: enter manually in Render dashboard
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      # ── JWT ──
+      - key: JWT_SECRET
+        generateValue: true  # Render auto-generates a random secret
+      # ── Redirect URIs (set after you know your Render URL) ──
+      - key: GOOGLE_REDIRECT_URI
+        sync: false          # e.g. https://clinical-rag-api.onrender.com/auth/google/callback
+      - key: GITHUB_REDIRECT_URI
+        sync: false          # e.g. https://clinical-rag-api.onrender.com/auth/github/callback
+      # ── Frontend URL (for redirect-after-login) ──
+      - key: FRONTEND_URL
+        sync: false          # e.g. https://clinical-rag.vercel.app
+      # ── AI API Keys ──
+      - key: GROQ_API_KEY
+        sync: false
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      # ── Session signing ──
+      - key: SESSION_SECRET
+        generateValue: true

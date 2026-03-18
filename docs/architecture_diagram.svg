@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="920" viewBox="0 0 1400 920" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- ═══ BACKGROUND ═══ -->
+  <rect width="1400" height="920" fill="#F8FAFC" rx="0"/>
+
+  <!-- ═══ TITLE ═══ -->
+  <text x="700" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#1E3A5F" letter-spacing="0.5">Architecture of Temporal Evidence-Aware Clinical RAG System</text>
+  <text x="700" y="56" text-anchor="middle" font-size="11" fill="#64748B">Clinical Decision Support for Heart Failure · LangGraph + FastAPI + React</text>
+  <line x1="60" y1="65" x2="1340" y2="65" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- LAYER 1: FRONTEND (top)                                   -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <rect x="55" y="75" width="1290" height="110" rx="8" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="76" y="91" font-size="10" font-weight="700" fill="#1E40AF" letter-spacing="1">REACT FRONTEND  (Clinical RAG Assistant · Vite + TypeScript)</text>
+
+  <!-- 4 frontend modules -->
+  <!-- Evidence Chat -->
+  <rect x="100" y="100" width="240" height="70" rx="6" fill="#1E3A5F" stroke="#1E3A5F"/>
+  <text x="220" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="white">🩺  Evidence Chat</text>
+  <text x="220" y="139" text-anchor="middle" font-size="9.5" fill="#93C5FD">Multi-turn RAG · Chat History (localStorage)</text>
+  <text x="220" y="154" text-anchor="middle" font-size="9.5" fill="#93C5FD">Pulsing Heart Loader · Decay Method Selector</text>
+
+  <!-- Risk Forecaster -->
+  <rect x="370" y="100" width="240" height="70" rx="6" fill="#7F1D1D" stroke="#991B1B"/>
+  <text x="490" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="white">❤️  Risk Forecaster</text>
+  <text x="490" y="139" text-anchor="middle" font-size="9.5" fill="#FCA5A5">11 Clinical Feature Inputs</text>
+  <text x="490" y="154" text-anchor="middle" font-size="9.5" fill="#FCA5A5">1-Day / 7-Day / 30-Day Risk Gauges</text>
+
+  <!-- Research Pulse -->
+  <rect x="640" y="100" width="240" height="70" rx="6" fill="#1E3A5F" stroke="#1E3A5F"/>
+  <text x="760" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="white">🔬  Research Pulse</text>
+  <text x="760" y="139" text-anchor="middle" font-size="9.5" fill="#93C5FD">EKG Pulse Loader · LLM Synthesis Panel</text>
+  <text x="760" y="154" text-anchor="middle" font-size="9.5" fill="#93C5FD">PubMed Articles · NIH / WHO / AHA Sources</text>
+
+  <!-- Eval Dashboard -->
+  <rect x="910" y="100" width="410" height="70" rx="6" fill="#134E4A" stroke="#0D9488"/>
+  <text x="1115" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="white">📊  Eval Dashboard</text>
+  <text x="1115" y="139" text-anchor="middle" font-size="9.5" fill="#99F6E4">Method Comparison Table · Decay Curve SVG</text>
+  <text x="1115" y="154" text-anchor="middle" font-size="9.5" fill="#99F6E4">Latency Breakdown Chart · Live from GET /metrics</text>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- ARROWS: Frontend → Backend                               -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <line x1="220" y1="185" x2="220" y2="215" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="490" y1="185" x2="490" y2="215" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="760" y1="185" x2="760" y2="215" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="1115" y1="185" x2="1115" y2="215" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+  <text x="222" y="204" font-size="8" fill="#94A3B8">POST /query</text>
+  <text x="447" y="204" font-size="8" fill="#94A3B8">POST /predict</text>
+  <text x="718" y="204" font-size="8" fill="#94A3B8">POST /search</text>
+  <text x="1073" y="204" font-size="8" fill="#94A3B8">GET /metrics</text>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- LAYER 2: FASTAPI (middle)                                 -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <rect x="55" y="215" width="1290" height="85" rx="8" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1.5"/>
+  <text x="76" y="231" font-size="10" font-weight="700" fill="#0369A1" letter-spacing="1">FASTAPI BACKEND  (Port 8001 · CORS · Pydantic Schemas)</text>
+
+  <!-- API endpoints -->
+  <rect x="100" y="238" width="340" height="50" rx="5" fill="white" stroke="#BAE6FD" stroke-width="1"/>
+  <text x="120" y="254" font-size="9.5" fill="#0369A1" font-weight="600">POST /query     →  LangGraph RAG pipeline</text>
+  <text x="120" y="268" font-size="9.5" fill="#0369A1" font-weight="600">POST /predict   →  ChronosModel inference</text>
+  <text x="120" y="282" font-size="9.5" fill="#0369A1" font-weight="600">POST /search    →  Groq synthesis + PubMed</text>
+
+  <rect x="460" y="238" width="340" height="50" rx="5" fill="white" stroke="#BAE6FD" stroke-width="1"/>
+  <text x="480" y="254" font-size="9.5" fill="#0369A1" font-weight="600">GET  /metrics   →  latest_metrics.json</text>
+  <text x="480" y="268" font-size="9.5" fill="#0369A1" font-weight="600">POST /evaluate  →  All 4 methods comparison</text>
+  <text x="480" y="282" font-size="9.5" fill="#94A3B8">Returns: answer + sources + timings dict</text>
+
+  <!-- Timing instrumentation badge -->
+  <rect x="830" y="238" width="490" height="50" rx="5" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+  <text x="1075" y="255" text-anchor="middle" font-size="10" font-weight="700" fill="#C2410C">⏱  Per-Stage Timing Instrumentation</text>
+  <text x="1075" y="270" text-anchor="middle" font-size="9" fill="#9A3412">retrieve_ms  ·  rerank_ms  ·  generate_ms  →  timings dict in GraphState</text>
+  <text x="1075" y="284" text-anchor="middle" font-size="9" fill="#9A3412">time.perf_counter() wrapping each LangGraph node</text>
+
+  <!-- Arrows Backend → LangGraph -->
+  <line x1="270" y1="300" x2="270" y2="340" stroke="#0369A1" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="272" y="324" font-size="8" fill="#94A3B8">invoke graph</text>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- LAYER 3: LANGGRAPH PIPELINE (core)                       -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <rect x="55" y="340" width="1290" height="165" rx="8" fill="#F0FDFA" stroke="#99F6E4" stroke-width="1.5"/>
+  <text x="76" y="358" font-size="10" font-weight="700" fill="#0D7377" letter-spacing="1">LANGGRAPH AGENTIC PIPELINE  (StateGraph · GraphState typeddict)</text>
+
+  <!-- START label -->
+  <circle cx="92" cy="430" r="20" fill="#0D7377"/>
+  <text x="92" y="434" text-anchor="middle" font-size="10" font-weight="700" fill="white">START</text>
+  <line x1="113" y1="430" x2="160" y2="430" stroke="#0D7377" stroke-width="2" marker-end="url(#arr2)"/>
+
+  <!-- NODE 1: Retrieve -->
+  <rect x="160" y="370" width="290" height="120" rx="7" fill="#1E3A5F" stroke="#2563EB" stroke-width="1.5"/>
+  <rect x="160" y="370" width="290" height="26" rx="7" fill="#2563EB"/>
+  <rect x="160" y="390" width="290" height="6" rx="0" fill="#2563EB"/>
+  <text x="305" y="387" text-anchor="middle" font-size="12" font-weight="700" fill="white">① Retrieve Node</text>
+  <text x="175" y="413" font-size="9.5" fill="#93C5FD">• SapBERT encode query → float32 vector</text>
+  <text x="175" y="428" font-size="9.5" fill="#93C5FD">• FAISS L2 search → Top-50 candidates</text>
+  <text x="175" y="443" font-size="9.5" fill="#93C5FD">• Pack: pmid, year, title, content, distance</text>
+  <text x="175" y="458" font-size="9.5" fill="#60A5FA">• dist_to_similarity(): 1 / (1 + dist)</text>
+  <text x="175" y="475" font-size="9.5" fill="#475569">⏱ retrieve_ms logged to GraphState</text>
+
+  <line x1="450" y1="430" x2="500" y2="430" stroke="#0D7377" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="462" y="422" font-size="8" fill="#94A3B8">top-50 docs</text>
+
+  <!-- NODE 2: Rerank -->
+  <rect x="500" y="370" width="310" height="120" rx="7" fill="#1E3A5F" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="500" y="370" width="310" height="26" rx="7" fill="#7C3AED"/>
+  <rect x="500" y="390" width="310" height="6" rx="0" fill="#7C3AED"/>
+  <text x="655" y="387" text-anchor="middle" font-size="12" font-weight="700" fill="white">② Temporal Rerank Node</text>
+  <text x="515" y="413" font-size="9.5" fill="#C4B5FD">ETVD:      score = sim × exp(−λ × age),  λ=0.05</text>
+  <text x="515" y="428" font-size="9.5" fill="#C4B5FD">Sigmoid:  score = sim × 1/(1+e^(k×(age-τ)))</text>
+  <text x="515" y="443" font-size="9.5" fill="#C4B5FD">BioScore:  α×sim + β×recency, α=0.7, β=0.3</text>
+  <text x="515" y="458" font-size="9.5" fill="#A78BFA">Sort descending → Keep Top-5 context</text>
+  <text x="515" y="475" font-size="9.5" fill="#475569">⏱ rerank_ms logged to GraphState</text>
+
+  <line x1="810" y1="430" x2="855" y2="430" stroke="#0D7377" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="810" y="422" font-size="8" fill="#94A3B8">top-5 context</text>
+
+  <!-- NODE 3: Generate -->
+  <rect x="855" y="370" width="360" height="120" rx="7" fill="#1E3A5F" stroke="#0D9488" stroke-width="1.5"/>
+  <rect x="855" y="370" width="360" height="26" rx="7" fill="#0D9488"/>
+  <rect x="855" y="390" width="360" height="6" rx="0" fill="#0D9488"/>
+  <text x="1035" y="387" text-anchor="middle" font-size="12" font-weight="700" fill="white">③ Generate Node (LangChain Agent)</text>
+  <text x="870" y="413" font-size="9.5" fill="#99F6E4">Tool LLM:  llama3-groq-70b-8192-tool-use-preview</text>
+  <text x="870" y="428" font-size="9.5" fill="#99F6E4">Final LLM: llama-3.3-70b-versatile (Groq)</text>
+  <text x="870" y="443" font-size="9.5" fill="#99F6E4">bind_tools([predict_heart_failure_risk, search_pubmed])</text>
+  <text x="870" y="458" font-size="9.5" fill="#5EEAD4">Fallback: retry without tools on 400 error</text>
+  <text x="870" y="475" font-size="9.5" fill="#475569">⏱ generate_ms logged to GraphState</text>
+
+  <!-- END label -->
+  <line x1="1215" y1="430" x2="1268" y2="430" stroke="#0D7377" stroke-width="2" marker-end="url(#arr2)"/>
+  <circle cx="1288" cy="430" r="20" fill="#0D7377"/>
+  <text x="1288" y="434" text-anchor="middle" font-size="10" font-weight="700" fill="white">END</text>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- ARROWS: generate ↔ tools (bidirectional)                 -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <line x1="1035" y1="490" x2="1035" y2="555" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr3)"/>
+  <line x1="1025" y1="555" x2="1025" y2="490" stroke="#10B981" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr4)"/>
+  <text x="1038" y="528" font-size="8" fill="#D97706">tool call</text>
+  <text x="995" y="545" font-size="8" fill="#059669">tool result</text>
+
+  <!-- ARROW: retrieve ← knowledge base -->
+  <line x1="305" y1="555" x2="305" y2="490" stroke="#92400E" stroke-width="1.8" marker-end="url(#arr5)"/>
+  <text x="308" y="528" font-size="8" fill="#92400E">embeddings + index</text>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- LAYER 4 BOTTOM: 3 zones                                  -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <!-- Knowledge Base -->
+  <rect x="55" y="555" width="470" height="155" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="75" y="573" font-size="10" font-weight="700" fill="#92400E" letter-spacing="1">KNOWLEDGE BASE  (Offline Ingestion · src/ingestion.py)</text>
+  <rect x="75" y="582" width="200" height="80" rx="5" fill="white" stroke="#FCD34D" stroke-width="1"/>
+  <text x="175" y="598" text-anchor="middle" font-size="10" font-weight="600" fill="#78350F">FAISS Index</text>
+  <text x="85" y="614" font-size="9" fill="#92400E">• pubmed_faiss.index  (L2 distance)</text>
+  <text x="85" y="628" font-size="9" fill="#92400E">• pubmed_metadata.csv</text>
+  <text x="85" y="642" font-size="9" fill="#92400E">• Fields: pmid, year, title, text_chunk</text>
+  <text x="85" y="656" font-size="9" fill="#92400E">• Source: PubMed heart failure corpus</text>
+
+  <rect x="290" y="582" width="215" height="80" rx="5" fill="white" stroke="#FCD34D" stroke-width="1"/>
+  <text x="397" y="598" text-anchor="middle" font-size="10" font-weight="600" fill="#78350F">Embedding Model</text>
+  <text x="300" y="614" font-size="9" fill="#92400E">• SapBERT-from-PubMedBERT</text>
+  <text x="300" y="628" font-size="9" fill="#92400E">• Bio-domain sentence transformer</text>
+  <text x="300" y="642" font-size="9" fill="#92400E">• Output: float32 vectors</text>
+  <text x="300" y="656" font-size="9" fill="#92400E">• Cached globally (_EMBED_MODEL)</text>
+
+  <text x="290" y="700" font-size="9" fill="#92400E" font-style="italic">🗄  SentenceTransformer · FAISS · Pandas · NumPy</text>
+
+  <!-- LangChain Tools -->
+  <rect x="545" y="555" width="570" height="155" rx="8" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="565" y="573" font-size="10" font-weight="700" fill="#065F46" letter-spacing="1">LANGCHAIN TOOLS  (@tool decorator · src/tools.py)</text>
+
+  <rect x="565" y="582" width="250" height="115" rx="5" fill="white" stroke="#6EE7B7" stroke-width="1"/>
+  <text x="690" y="599" text-anchor="middle" font-size="10" font-weight="700" fill="#065F46">search_pubmed</text>
+  <text x="575" y="614" font-size="9" fill="#047857">• LangChain @tool decorator</text>
+  <text x="575" y="628" font-size="9" fill="#047857">• PubMedAPIWrapper (top_k=3)</text>
+  <text x="575" y="642" font-size="9" fill="#047857">• PubmedQueryRun executor</text>
+  <text x="575" y="656" font-size="9" fill="#047857">• Args schema: PubMedInput (Pydantic)</text>
+  <text x="575" y="670" font-size="9" fill="#047857">• Returns: titles + abstracts (1000 chars)</text>
+  <text x="575" y="684" font-size="9" fill="#94A3B8">→ Live NCBI E-utilities API</text>
+
+  <rect x="835" y="582" width="265" height="115" rx="5" fill="white" stroke="#6EE7B7" stroke-width="1"/>
+  <text x="968" y="599" text-anchor="middle" font-size="10" font-weight="700" fill="#065F46">predict_heart_failure_risk</text>
+  <text x="845" y="614" font-size="9" fill="#047857">• LangChain @tool decorator</text>
+  <text x="845" y="628" font-size="9" fill="#047857">• 11 clinical input parameters</text>
+  <text x="845" y="642" font-size="9" fill="#047857">• simulate_mimic_vitals() → 48h (HR,BP,SpO2)</text>
+  <text x="845" y="656" font-size="9" fill="#047857">• ChronosModel.forward(x_ts, x_static)</text>
+  <text x="845" y="670" font-size="9" fill="#047857">• Returns: 1-Day / 7-Day / 30-Day risk %</text>
+  <text x="845" y="684" font-size="9" fill="#94A3B8">→ PyTorch inference (improved_chronos_model.pth)</text>
+
+  <!-- ChronosModel -->
+  <rect x="1135" y="555" width="210" height="155" rx="8" fill="#FFF1F2" stroke="#FDA4AF" stroke-width="1.5"/>
+  <text x="1155" y="573" font-size="10" font-weight="700" fill="#881337" letter-spacing="0.5">CHRONOS MODEL  (PyTorch)</text>
+  <text x="1155" y="591" font-size="9" fill="#9F1239">Prediction Folder Notebooks:</text>
+  <text x="1155" y="606" font-size="9" fill="#9F1239">• HF_Prediction_Comparison.ipynb</text>
+  <text x="1155" y="620" font-size="9" fill="#9F1239">• HF_Enhanced_Colab.ipynb</text>
+  <text x="1155" y="636" font-size="9" fill="#9F1239" font-weight="600">Architecture:</text>
+  <text x="1155" y="650" font-size="9" fill="#9F1239">GRU(in=3, h=64) ← 48h vitals</text>
+  <text x="1155" y="664" font-size="9" fill="#9F1239">Linear(12→64) ← static feats</text>
+  <text x="1155" y="678" font-size="9" fill="#9F1239">Concat[128] → Dense(64)</text>
+  <text x="1155" y="692" font-size="9" fill="#B91C1C">Head_1d · Head_7d · Head_30d</text>
+  <text x="1155" y="706" font-size="9" fill="#B91C1C">→ Sigmoid activation per head</text>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- EVALUATION LAYER                                          -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <rect x="55" y="725" width="1290" height="120" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="76" y="741" font-size="10" font-weight="700" fill="#475569" letter-spacing="1">EVALUATION PIPELINE  (Offline · evaluation/)</text>
+
+  <!-- Step boxes -->
+  <rect x="100" y="752" width="195" height="78" rx="5" fill="white" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="197" y="769" text-anchor="middle" font-size="10" font-weight="700" fill="#1E3A5F">benchmark_qa.json</text>
+  <text x="110" y="784" font-size="9" fill="#475569">30 Q&amp;A pairs (hand-crafted)</text>
+  <text x="110" y="798" font-size="9" fill="#475569">10 temporal-sensitive (post-2020)</text>
+  <text x="110" y="812" font-size="9" fill="#475569">Categories: guidelines, trials,</text>
+  <text x="110" y="822" font-size="9" fill="#475569">biomarkers, treatment, devices</text>
+
+  <line x1="295" y1="791" x2="335" y2="791" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <rect x="335" y="752" width="215" height="78" rx="5" fill="white" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="442" y="769" text-anchor="middle" font-size="10" font-weight="700" fill="#1E3A5F">ragas_eval.py</text>
+  <text x="345" y="784" font-size="9" fill="#475569">4 methods × 30 questions</text>
+  <text x="345" y="798" font-size="9" fill="#475569">no_decay · ETVD · Sigmoid · BioScore</text>
+  <text x="345" y="812" font-size="9" fill="#475569">Metrics: keyword_overlap, avg_src_year,</text>
+  <text x="345" y="822" font-size="9" fill="#475569">retrieve_ms, rerank_ms, generate_ms</text>
+
+  <line x1="550" y1="791" x2="590" y2="791" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <rect x="590" y="752" width="215" height="78" rx="5" fill="white" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="697" y="769" text-anchor="middle" font-size="10" font-weight="700" fill="#1E3A5F">ablation_study.py</text>
+  <text x="600" y="784" font-size="9" fill="#475569">Temporal vs. Static subset analysis</text>
+  <text x="600" y="798" font-size="9" fill="#475569">Relative improvement vs. baseline</text>
+  <text x="600" y="812" font-size="9" fill="#475569">Category breakdown (guidelines,</text>
+  <text x="600" y="822" font-size="9" fill="#475569">trials, biomarkers, devices…)</text>
+
+  <line x1="805" y1="791" x2="845" y2="791" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <rect x="845" y="752" width="215" height="78" rx="5" fill="white" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="952" y="769" text-anchor="middle" font-size="10" font-weight="700" fill="#1E3A5F">Results Artifacts</text>
+  <text x="855" y="784" font-size="9" fill="#475569">ragas_results.csv (full matrix)</text>
+  <text x="855" y="798" font-size="9" fill="#475569">latest_metrics.json → GET /metrics</text>
+  <text x="855" y="812" font-size="9" fill="#475569">ablation_results.csv</text>
+  <text x="855" y="822" font-size="9" fill="#475569">LaTeX table (paper-ready)</text>
+
+  <line x1="1060" y1="791" x2="1100" y2="791" stroke="#64748B" stroke-width="1.2" marker-end="url(#arr)"/>
+
+  <rect x="1100" y="752" width="225" height="78" rx="5" fill="#1E3A5F" stroke="#1E3A5F"/>
+  <text x="1212" y="769" text-anchor="middle" font-size="11" font-weight="700" fill="white">IEEE Paper Output</text>
+  <text x="1110" y="784" font-size="9" fill="#93C5FD">Table III: Ablation Study</text>
+  <text x="1110" y="798" font-size="9" fill="#93C5FD">Fig. 2: Decay Curve Comparison</text>
+  <text x="1110" y="812" font-size="9" fill="#93C5FD">Fig. 3: Latency Breakdown</text>
+  <text x="1110" y="822" font-size="9" fill="#93C5FD">Section V: Experimental Results</text>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- ARROWHEAD MARKERS                                        -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748B"/>
+    </marker>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0D7377"/>
+    </marker>
+    <marker id="arr3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#F59E0B"/>
+    </marker>
+    <marker id="arr4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10B981"/>
+    </marker>
+    <marker id="arr5" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#92400E"/>
+    </marker>
+  </defs>
+
+</svg>

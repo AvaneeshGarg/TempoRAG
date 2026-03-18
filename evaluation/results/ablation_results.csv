@@ -1,0 +1,5 @@
+method,KW_Overlap,Avg_Src_Year,Retrieve_ms,Rerank_ms,Generate_ms,Total_ms,KW_Overlap_Temporal,KW_Overlap_Static,Improvement_vs_Baseline_%
+bioscore,0.173,2023.293,1101.223,76.434,83362.999,84563.743,0.161,0.181,-10.8
+etvd,0.193,2022.738,1003.261,1.081,27716.23,28735.327,0.152,0.218,-0.5
+no_decay,0.194,2022.667,1267.914,1.683,34860.904,36140.597,0.146,0.225,0.0
+sigmoid,0.201,2022.529,468.11,16.98,21907.958,22400.597,0.19,0.207,3.6

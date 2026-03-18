@@ -1,0 +1,84 @@
+digraph TempoRAG {
+	compound=true dpi=1200 nodesep=0.6 rankdir=LR ranksep=0.8 splines=ortho
+	node [color="#475569" fontname=Arial fontsize=14 margin="0.25,0.15" penwidth=1.2 shape=box style="filled,rounded"]
+	edge [arrowsize=1.0 color="#1E293B" fontname=Arial fontsize=13 penwidth=2.2]
+	subgraph cluster_input {
+		node [color="#1E3A8A" fillcolor=white]
+		color="#1E3A8A" fillcolor="#3B82F6" penwidth=1.5 style="filled,rounded"
+		fontcolor=white fontname="Arial Bold" fontsize=15 label="CLINICAL
+INPUT
+(Frontend)"
+		q_input [label="Clinical
+Query Input" height=0.8]
+		r_input [label="Risk
+Parameter
+Input" height=0.8]
+		q_input -> r_input [style=invis]
+	}
+	api [label="API
+GATEWAY" color="#0284C7" fillcolor="#BAE6FD" fontname="Arial Bold" height=5.5 width=1.0]
+	subgraph cluster_rag {
+		node [color="#64748B" fillcolor="#E0F2FE" height=1.6 width=1.4]
+		color="#64748B" fillcolor="#F8FAFC" penwidth=1.2 style="filled,rounded"
+		fontcolor=black fontname="Arial Bold" fontsize=14 label="AGENTIC RAG PIPELINE
+(LangGraph)"
+		retrieve [label="1. RETRIEVE
+NODE
+
+SapBERT
+&
+FAISS"]
+		rerank [label="2. RERANK
+NODE
+
+Configurable
+Decay: ETVD,
+Sigmoid,
+BioScore"]
+		generate [label="3. GENERATE
+NODE
+
+Tool-
+Augmented
+LLM"]
+		retrieve -> rerank
+		rerank -> generate
+	}
+	subgraph cluster_tools {
+		node [color="#64748B" fillcolor="#E0F2FE" height=0.8 width=2.4]
+		color="#64748B" fillcolor="#F8FAFC" penwidth=1.2 style="filled,rounded"
+		fontcolor=black fontname="Arial Bold" fontsize=14 label="CLINICAL TOOL LAYER
+(LangChain)"
+		pubmed [label=search_pubmed]
+		chronos [label="predict_heart_
+failure_risk
+(ChronosModel)"]
+		pubmed -> chronos [style=invis]
+	}
+	subgraph cluster_eval {
+		node [color="#64748B" fillcolor="#E0F2FE" height=0.8 width=1.4]
+		color="#64748B" fillcolor="#F8FAFC" penwidth=1.2 style="filled,rounded"
+		fontcolor=black fontname="Arial Bold" fontsize=14 label="OFFLINE EVALUATION SUBSYSTEM"
+		bench [label="BENCHMARK
+DATASET"]
+		ablation [label="ABLATION
+RUNNER"]
+		metrics [label="METRICS
+ENGINE"]
+		results [label=RESULTS]
+		bench -> ablation
+		ablation -> metrics
+		metrics -> results
+	}
+	summary [label="CLINICAL INSIGHT & RESULTS SUMMARY" color="#CA8A04" fillcolor="#FEF08A" fontname="Arial Bold" height=0.8 width=8.0]
+	q_input -> api
+	r_input -> api
+	api -> retrieve
+	api -> bench
+	generate -> pubmed [dir=both]
+	generate -> chronos [dir=both]
+	generate -> metrics [constraint=false dir=both lhead=cluster_eval ltail=cluster_rag]
+	ablation -> summary [constraint=false ltail=cluster_eval]
+	summary -> q_input [constraint=false dir=forward lhead=cluster_input xlabel="Dashboard display  
+ to TempoRAG   "]
+}

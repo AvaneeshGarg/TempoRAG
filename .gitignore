@@ -1,0 +1,45 @@
+# Environment files — NEVER commit real secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Node / Frontend
+clinical-rag-assistant/node_modules/
+clinical-rag-assistant/dist/
+clinical-rag-assistant/dist-ssr/
+*.local
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.sln
+*.sw?
+.DS_Store
+
+# Logs
+*.log
+server_debug.log
+server_path.log
+backend_error*.txt
+debug_log.txt
+
+# Large model/data files
+*.faiss
+*.pkl
+*.pt
+*.bin

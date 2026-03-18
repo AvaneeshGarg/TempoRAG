@@ -1,0 +1,212 @@
+[
+    {
+        "question": "What is the recommended first-line pharmacological treatment for heart failure with reduced ejection fraction (HFrEF)?",
+        "ground_truth": "The 2022 AHA/ACC guidelines recommend four pillars of therapy for HFrEF: ACE inhibitors or ARBs/ARNIs (sacubitril/valsartan), beta-blockers, mineralocorticoid receptor antagonists (MRAs), and SGLT2 inhibitors (dapagliflozin or empagliflozin).",
+        "temporal_sensitivity": true,
+        "min_year": 2022,
+        "category": "guidelines"
+    },
+    {
+        "question": "What is the role of SGLT2 inhibitors in heart failure management?",
+        "ground_truth": "SGLT2 inhibitors (dapagliflozin, empagliflozin) received Class I recommendations in 2022 AHA/ACC guidelines for HFrEF and HFmrEF, reducing hospitalizations and cardiovascular death regardless of diabetes status.",
+        "temporal_sensitivity": true,
+        "min_year": 2021,
+        "category": "guidelines"
+    },
+    {
+        "question": "What does an ejection fraction below 40% indicate?",
+        "ground_truth": "An ejection fraction below 40% defines heart failure with reduced ejection fraction (HFrEF), indicating impaired systolic function and requiring guideline-directed medical therapy.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "general"
+    },
+    {
+        "question": "How does BNP level correlate with heart failure severity?",
+        "ground_truth": "BNP (B-type natriuretic peptide) levels above 100 pg/mL suggest heart failure. Levels above 400 pg/mL indicate high likelihood of decompensated HF. BNP is used for diagnosis, prognosis, and therapy guidance.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "biomarkers"
+    },
+    {
+        "question": "What are the current diuretic recommendations for acute decompensated heart failure?",
+        "ground_truth": "Loop diuretics (furosemide, bumetanide, torsemide) are the mainstay for treating volume overload in ADHF. IV furosemide at 1-2.5x the oral dose is recommended, with reassessment of urine output at 2-4 hours.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "treatment"
+    },
+    {
+        "question": "What are the updated 2022 ESC thresholds for diagnosing heart failure with preserved ejection fraction?",
+        "ground_truth": "The 2022 ESC guidelines use the HFA-PEFF score for HFpEF diagnosis. An EF ≥50% combined with elevated natriuretic peptides (NT-proBNP >125 pg/mL in sinus rhythm) and at least one supporting echocardiographic criterion is required.",
+        "temporal_sensitivity": true,
+        "min_year": 2022,
+        "category": "guidelines"
+    },
+    {
+        "question": "What is cardiac resynchronization therapy and when is it indicated?",
+        "ground_truth": "CRT uses biventricular pacing to coordinate ventricular contractions. It is indicated in patients with EF ≤35%, LBBB with QRS duration ≥150ms, and NYHA class II-IV despite optimal medical therapy.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "devices"
+    },
+    {
+        "question": "How does sacubitril/valsartan compare to enalapril in heart failure outcomes?",
+        "ground_truth": "The PARADIGM-HF trial (2014) showed sacubitril/valsartan reduced cardiovascular death and HF hospitalization by 20% compared to enalapril in HFrEF patients, establishing ARNI as superior to ACEi monotherapy.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "trials"
+    },
+    {
+        "question": "What is the impact of carvedilol in heart failure mortality?",
+        "ground_truth": "The COPERNICUS trial demonstrated carvedilol reduced all-cause mortality by 35% in severe HFrEF. It is one of three beta-blockers (along with metoprolol succinate and bisoprolol) with proven mortality benefit.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "trials"
+    },
+    {
+        "question": "What is the 6-minute walk test significance in heart failure prognosis?",
+        "ground_truth": "The 6-minute walk test (6MWT) measures functional capacity. A distance below 300 meters correlates with NYHA Class III-IV severity and is an independent predictor of mortality and hospitalization in heart failure.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "general"
+    },
+    {
+        "question": "What are the indications for ICD implantation in heart failure?",
+        "ground_truth": "ICD is indicated for primary prevention in patients with HFrEF (EF ≤35%), NYHA Class II-III, on GDMT for ≥3 months with expected survival >1 year. Class I recommendation in 2022 AHA/ACC guidelines.",
+        "temporal_sensitivity": true,
+        "min_year": 2022,
+        "category": "devices"
+    },
+    {
+        "question": "What is the role of ivabradine in heart failure?",
+        "ground_truth": "Ivabradine reduces heart rate by blocking HCN channels (I-f current). It is used in HFrEF patients in sinus rhythm with resting HR ≥70 bpm who remain symptomatic on maximally tolerated beta-blocker doses.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "treatment"
+    },
+    {
+        "question": "What serum creatinine levels indicate cardiorenal syndrome in heart failure?",
+        "ground_truth": "Cardiorenal syndrome type 1 is defined by acute worsening of cardiac function causing AKI. A rise in serum creatinine >0.3 mg/dL or a 50% increase from baseline during HF treatment is the diagnostic threshold.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "biomarkers"
+    },
+    {
+        "question": "How does atrial fibrillation affect heart failure outcomes?",
+        "ground_truth": "AF and HF frequently coexist and each worsens the other. AF in HF patients is associated with 40-60% increased mortality risk and 2-3x higher stroke risk. Rhythm control with catheter ablation shows superior outcomes to rate control in recent trials (CASTLE-AF, 2018).",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "comorbidities"
+    },
+    {
+        "question": "What are the updated 2023 ESC guidelines on heart failure classification?",
+        "ground_truth": "The 2023 focused update maintained HFrEF (EF<40%), HFmrEF (EF 40-49%), and HFpEF (EF≥50%) classification. SGLT2 inhibitors received Class IIa in HFmrEF and HFpEF based on EMPEROR-Preserved and DELIVER trials.",
+        "temporal_sensitivity": true,
+        "min_year": 2023,
+        "category": "guidelines"
+    },
+    {
+        "question": "What is the MAGGIC risk score for heart failure?",
+        "ground_truth": "The MAGGIC (Meta-Analysis Global Group in Chronic Heart Failure) score predicts 1-year and 3-year mortality using 13 variables including age, EF, NYHA class, BMI, creatinine, and comorbidities. It outperforms single-variable models.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "risk_scores"
+    },
+    {
+        "question": "What is the evidence for iron supplementation in heart failure?",
+        "ground_truth": "Ferric carboxymaltose (FCM) IV iron showed improved symptoms and exercise capacity in AFFIRM-AHF trial (2020) for HF patients with iron deficiency (ferritin<100 or 100-299 with TSAT<20%). Reduced HF rehospitalizations by 26%.",
+        "temporal_sensitivity": true,
+        "min_year": 2020,
+        "category": "treatment"
+    },
+    {
+        "question": "How does obesity affect heart failure development in young adults?",
+        "ground_truth": "Obesity is a major modifiable risk factor for HF. Each 5-unit BMI increase raises HF risk by approximately 17% (Framingham). In those under 40, obesity-induced HFpEF is increasingly prevalent due to metabolic stress, inflammation, and neurohormonal activation.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "risk_factors"
+    },
+    {
+        "question": "What does the EMPEROR-Reduced trial demonstrate about empagliflozin?",
+        "ground_truth": "EMPEROR-Reduced (2020) showed empagliflozin reduced the composite of CV death or HF hospitalization by 25% in HFrEF patients. Benefit was consistent regardless of diabetes status, supporting SGLT2i as standard of care.",
+        "temporal_sensitivity": true,
+        "min_year": 2020,
+        "category": "trials"
+    },
+    {
+        "question": "What is the optimal target heart rate in heart failure with reduced ejection fraction?",
+        "ground_truth": "Current guidelines target a resting heart rate of 55-60 bpm in HFrEF to maximize diastolic filling. Beta-blockers are titrated to achieve this, with ivabradine added if HR remains ≥70 bpm on maximally tolerated doses.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "treatment"
+    },
+    {
+        "question": "What are the 2022 AHA/ACC recommendations on sodium restriction in heart failure?",
+        "ground_truth": "The 2022 AHA/ACC guidelines downgraded sodium restriction: a diet with less than 3g/day sodium is recommended (Class IIa) for symptomatic HF patients to reduce congestion. The previous strict <2g/day target lacks strong evidence.",
+        "temporal_sensitivity": true,
+        "min_year": 2022,
+        "category": "guidelines"
+    },
+    {
+        "question": "What is the role of cardiac biomarkers troponin T and troponin I in heart failure?",
+        "ground_truth": "High-sensitivity troponins (hs-TnT, hs-TnI) detect myocardial injury in HF. Elevated troponin in chronic HF indicates ongoing cardiomyocyte death and correlates with worse prognosis. Used alongside BNP/NT-proBNP for risk stratification.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "biomarkers"
+    },
+    {
+        "question": "How does the DAPA-HF trial change heart failure treatment?",
+        "ground_truth": "DAPA-HF (2019) showed dapagliflozin reduced worsening HF events and CV mortality by 26% in HFrEF patients, including those without diabetes. This landmark trial led to Class I recommendation for dapagliflozin in the 2022 AHA/ACC guidelines.",
+        "temporal_sensitivity": true,
+        "min_year": 2019,
+        "category": "trials"
+    },
+    {
+        "question": "What is remote patient monitoring evidence in heart failure?",
+        "ground_truth": "CardioMEMS (pulmonary artery pressure monitoring) reduced HF hospitalizations by 28% in CHAMPION trial (2011). Newer wearable devices and implantable monitors show 30-40% reduction in HF-related hospitalizations in 2022-2023 meta-analyses.",
+        "temporal_sensitivity": true,
+        "min_year": 2021,
+        "category": "devices"
+    },
+    {
+        "question": "What dietary patterns reduce risk of heart failure in middle-aged adults?",
+        "ground_truth": "Mediterranean diet (PREDIMED, 2013) reduces incident HF by approximately 26%. DASH diet adherence correlates with 15-25% lower HF risk. Ultra-processed food consumption (>4 servings/day) increases HF risk by 12% per serving (NIH cohort, 2021).",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "prevention"
+    },
+    {
+        "question": "What is the role of vericiguat in heart failure?",
+        "ground_truth": "Vericiguat, an sGC stimulator, was approved in 2021 for high-risk HFrEF following the VICTORIA trial (2020), which showed a 10% reduction in CV death or HF hospitalization. It is used in patients who worsen despite standard GDMT.",
+        "temporal_sensitivity": true,
+        "min_year": 2020,
+        "category": "treatment"
+    },
+    {
+        "question": "What are platelet count thresholds that affect heart failure prognosis?",
+        "ground_truth": "Thrombocytopenia (<100,000/µL) in HF patients is associated with worse outcomes and higher bleeding risk with anticoagulants. Platelet count is included in Intermacs profiles and some HF risk calculators.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "biomarkers"
+    },
+    {
+        "question": "How effective is cardiac rehabilitation in heart failure recovery?",
+        "ground_truth": "Exercise-based cardiac rehabilitation (HF-ACTION trial, 2009) showed modest but significant improvement in exercise capacity and quality of life. A 2022 Cochrane meta-analysis confirmed 26% reduction in HF-related hospitalizations with cardiac rehab.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "prevention"
+    },
+    {
+        "question": "What updates did the 2023 ACC/AHA guidelines make on diuretic resistance?",
+        "ground_truth": "The 2023 ACC/AHA focused update addresses diuretic resistance with a sequential nephron blockade strategy: adding thiazide diuretics (metolazone, chlorothiazide) to loop diuretics. Acetazolamide (ADVOR trial, 2022) received a IIb recommendation.",
+        "temporal_sensitivity": true,
+        "min_year": 2022,
+        "category": "guidelines"
+    },
+    {
+        "question": "What is hyponatremia's prognostic significance in hospitalized heart failure patients?",
+        "ground_truth": "Serum sodium <135 mEq/L (hyponatremia) in HF is associated with 2-3x higher in-hospital mortality and prolonged length of stay. It reflects neurohormonal activation (ADH) and advanced disease, and predicts 90-day readmission rates.",
+        "temporal_sensitivity": false,
+        "min_year": null,
+        "category": "biomarkers"
+    }
+]

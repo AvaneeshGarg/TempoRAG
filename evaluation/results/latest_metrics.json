@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-02-22T15:57:39.698653",
+  "n_questions": 30,
+  "methods": {
+    "bioscore": {
+      "avg_keyword_overlap": 0.173,
+      "avg_answer_length": 858.633,
+      "pct_with_statistics": 0.733,
+      "avg_source_year": 2023.293,
+      "avg_retrieve_ms": 1101.223,
+      "avg_rerank_ms": 76.434,
+      "avg_generate_ms": 83362.999,
+      "avg_total_ms": 84563.743,
+      "temporal_keyword_overlap": 0.161
+    },
+    "etvd": {
+      "avg_keyword_overlap": 0.193,
+      "avg_answer_length": 940.1,
+      "pct_with_statistics": 0.767,
+      "avg_source_year": 2022.738,
+      "avg_retrieve_ms": 1003.261,
+      "avg_rerank_ms": 1.081,
+      "avg_generate_ms": 27716.23,
+      "avg_total_ms": 28735.327,
+      "temporal_keyword_overlap": 0.152
+    },
+    "no_decay": {
+      "avg_keyword_overlap": 0.194,
+      "avg_answer_length": 948.2,
+      "pct_with_statistics": 0.733,
+      "avg_source_year": 2022.667,
+      "avg_retrieve_ms": 1267.914,
+      "avg_rerank_ms": 1.683,
+      "avg_generate_ms": 34860.904,
+      "avg_total_ms": 36140.597,
+      "temporal_keyword_overlap": 0.146
+    },
+    "sigmoid": {
+      "avg_keyword_overlap": 0.201,
+      "avg_answer_length": 979.033,
+      "pct_with_statistics": 0.767,
+      "avg_source_year": 2022.529,
+      "avg_retrieve_ms": 468.11,
+      "avg_rerank_ms": 16.98,
+      "avg_generate_ms": 21907.958,
+      "avg_total_ms": 22400.597,
+      "temporal_keyword_overlap": 0.19
+    }
+  }
+}

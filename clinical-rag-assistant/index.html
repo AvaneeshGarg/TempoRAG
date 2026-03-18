@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinical RAG Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .markdown-content p { margin-bottom: 1rem; }
+      .markdown-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+      .markdown-content ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1rem; }
+
+      /* Instant HTML splash — visible before React loads */
+      #html-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0f172a;
+        transition: opacity 0.3s ease;
+      }
+      #html-splash img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 30px rgba(225,29,72,0.5));
+        animation: html-splash-pulse 1.5s ease-in-out infinite;
+      }
+      #html-splash .splash-ring {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 2px solid rgba(225,29,72,0.3);
+        animation: html-splash-ring 2s ease-out infinite;
+      }
+      #html-splash .splash-ring:nth-child(2) { animation-delay: 0.7s; }
+      #html-splash .splash-ring:nth-child(3) { animation-delay: 1.4s; }
+      @keyframes html-splash-pulse {
+        0%, 100% { transform: scale(0.85); opacity: 0.8; }
+        50% { transform: scale(1); opacity: 1; }
+      }
+      @keyframes html-splash-ring {
+        0% { transform: scale(1); opacity: 0.6; }
+        100% { transform: scale(3); opacity: 0; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900">
+    <!-- Instant splash — shows before React loads -->
+    <div id="html-splash">
+      <div class="splash-ring"></div>
+      <div class="splash-ring"></div>
+      <div class="splash-ring"></div>
+      <img src="/logo.png" alt="Loading..." />
+    </div>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

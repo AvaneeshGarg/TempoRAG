@@ -1,0 +1,24 @@
+
+torch
+sentence-transformers
+faiss-cpu
+langchain
+langchain-groq
+langchain-openai
+langchain-community
+langgraph
+pandas
+numpy
+python-dotenv
+fastapi
+uvicorn[standard]
+xmltodict
+ragas
+datasets
+
+# Production OAuth & security
+authlib
+httpx
+python-jose[cryptography]
+itsdangerous
+starlette-session

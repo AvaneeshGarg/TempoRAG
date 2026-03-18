@@ -1,0 +1,89 @@
+digraph TempoRAG_Architecture {
+	dpi=300 rankdir=LR size="12,8!"
+	fontname="Arial, Helvetica, sans-serif"
+	nodesep=0.6 ranksep=0.8
+	fontcolor=black fontname="Arial, Helvetica, sans-serif Bold" fontsize=24 label="TempoRAG: Research Methodology Diagram
+
+" labelloc=t
+	subgraph cluster_input {
+		node [color=black fillcolor="#F8FAFC" fontname="Arial, Helvetica, sans-serif" fontsize=14 height=0.8 penwidth=1 shape=box style="filled,rounded" width=1.6]
+		color="#2B71B9" fillcolor="#4785C6" fontcolor=white fontname="Arial, Helvetica, sans-serif Bold" fontsize=14 label="CLINICAL
+INPUT
+(Frontend)" penwidth=2 style="filled,rounded"
+		query_input [label="Clinical
+Query Input"]
+		risk_input [label="Risk
+Parameter
+Input"]
+		query_input -> risk_input [style=invis]
+	}
+	api_gateway [label="API
+GATEWAY" color=black fillcolor="#A8D0E6" fontname="Arial, Helvetica, sans-serif Bold" fontsize=14 height=5.5 penwidth=1 shape=box style="filled,rounded" width=1.2]
+	summary_insight [label="CLINICAL INSIGHT & RESULTS SUMMARY" color=black fillcolor="#FFF3CD" fontname="Arial, Helvetica, sans-serif Bold" fontsize=14 height=1.0 penwidth=1.5 shape=box style="filled,rounded" width=8.5]
+	subgraph cluster_right_side {
+		style=invis
+		subgraph cluster_rag {
+			node [color=black fillcolor="#DDEBFA" fontname="Arial, Helvetica, sans-serif" fontsize=13 height=2.2 penwidth=1 shape=box style="filled,rounded" width=1.8]
+			color=black fillcolor="#F1F5F9" fontname="Arial, Helvetica, sans-serif Bold" fontsize=14 label="AGENTIC RAG PIPELINE
+(LangGraph)" penwidth=1.5 style="filled,rounded"
+			retrieve [label="1. RETRIEVE
+NODE
+
+SapBERT
+&
+FAISS"]
+			rerank [label="2. RERANK
+NODE
+
+Configurable
+Decay: ETVD,
+Sigmoid,
+BioScore"]
+			generate [label="3. GENERATE
+NODE
+
+Tool-
+Augmented
+LLM"]
+			retrieve -> rerank [arrowhead=normal penwidth=2]
+			rerank -> generate [arrowhead=normal penwidth=2]
+		}
+		subgraph cluster_tools {
+			node [color=black fillcolor="#DDEBFA" fontname="Arial, Helvetica, sans-serif" fontsize=13 height=0.8 penwidth=1 shape=box style="filled,rounded" width=2.2]
+			color=black fillcolor="#F1F5F9" fontname="Arial, Helvetica, sans-serif Bold" fontsize=12 label="CLINICAL TOOL
+LAYER
+(LangChain)" penwidth=1.5 style="filled,rounded"
+			tool_pubmed [label=search_pubmed]
+			tool_predict [label="predict_heart_
+failure_risk
+(ChronosModel)"]
+			tool_pubmed -> tool_predict [style=invis]
+		}
+		subgraph cluster_eval {
+			node [color=black fillcolor="#DDEBFA" fontname="Arial, Helvetica, sans-serif" fontsize=12 height=0.8 penwidth=1 shape=box style="filled,rounded" width=1.4]
+			color=black fillcolor="#F1F5F9" fontname="Arial, Helvetica, sans-serif Bold" fontsize=14 label="OFFLINE EVALUATION SUBSYSTEM" penwidth=1.5 style="filled,rounded"
+			eval_benchmark [label="BENCHMARK
+DATASET"]
+			eval_ablation [label="ABLATION
+RUNNER"]
+			eval_metrics [label="METRICS
+ENGINE"]
+			eval_results [label=RESULTS]
+			eval_benchmark -> eval_ablation [arrowhead=normal penwidth=2]
+			eval_ablation -> eval_metrics [arrowhead=normal penwidth=2]
+			eval_metrics -> eval_results [arrowhead=normal penwidth=2]
+		}
+	}
+	query_input -> api_gateway [arrowhead=normal penwidth=2]
+	api_gateway -> retrieve [arrowhead=normal penwidth=2]
+	api_gateway -> eval_benchmark [arrowhead=normal penwidth=2]
+	generate -> tool_pubmed [arrowhead=normal arrowtail=normal dir=both penwidth=2]
+	generate -> tool_predict [arrowhead=normal arrowtail=normal dir=both penwidth=2]
+	generate -> eval_metrics [arrowhead=normal arrowtail=normal constraint=false dir=both penwidth=2]
+	eval_ablation -> summary_insight [arrowhead=normal constraint=false penwidth=2]
+	splines=ortho
+	feedback_anchor [height=0 shape=point width=0]
+	summary_insight -> feedback_anchor [dir=none penwidth=2 tailport=w]
+	feedback_anchor -> query_input [arrowhead=normal fontname="Arial, Helvetica, sans-serif" fontsize=14 headport=s penwidth=2 xlabel="Dashboard display
+ to TempoRAG"]
+}

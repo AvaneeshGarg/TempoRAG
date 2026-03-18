@@ -1,0 +1,5 @@
+{
+  "name": "Clinical RAG Assistant",
+  "description": "A professional medical frontend for clinical retrieval-augmented generation, featuring heart failure risk prediction and PubMed literature synthesis.",
+  "requestFramePermissions": []
+}
